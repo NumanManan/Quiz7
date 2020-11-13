@@ -6,22 +6,22 @@ should turn off.
 
 #include<p18f4550.inc>
 
-		  	org 0x00
-		  	goto start
-		  	org 0x08
-		  	retfie
-		  	org 0x18
-		  	retfie
+	org 0x00
+	goto start
+	org 0x08
+	retfie
+	org 0x18
+	retfie
 			
 ;Start program (DE96498)
-start		CLRF TRISD,A
+start	CLRF TRISD,A
         SETF TRISB,A
         SETF PORTD,A
 
-check		BTFSC PORTB,0,A
+check	BTFSC PORTB,0,A
         BCF PORTD,0,A
         BTFSC PORTB,1,A
         BCF PORTD,1,A
         BRA check
 
-		  	END
+	END
